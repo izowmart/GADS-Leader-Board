@@ -29,10 +29,8 @@ class SkillIQFragment : Fragment() {
 
     companion object {
       private const val ARG_SECTION_NUMBER = "skill_iq_leaders"
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(section_number: Int) =
-            SkillIQFragment().apply {
+        fun newInstance(section_number: Int) = SkillIQFragment().apply {
                 arguments = Bundle().apply {
                     putInt(ARG_SECTION_NUMBER, section_number)
 
