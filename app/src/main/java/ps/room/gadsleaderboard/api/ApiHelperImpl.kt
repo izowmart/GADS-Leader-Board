@@ -8,4 +8,8 @@ class ApiHelperImpl @Inject constructor(private val apiService: ApiService) : Ap
     override suspend fun getLearningLeaders(): Response<List<Learners>> {
         return apiService.getLearningLeaders()
     }
+
+    override suspend fun getSkillIQLeaders(): Response<List<Learners>> {
+        return apiService.getSkillIQLeaders()
+    }
 }

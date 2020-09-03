@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/skill_iq_card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:elevation="2dp"
+    app:cardCornerRadius="2sp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/skill_iq_imageView"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:src="@drawable/skill_iq"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/skill_iq_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:textColor="#2E2E2E"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/skill_iq_imageView"
+            app:layout_constraintTop_toTopOf="@+id/skill_iq_imageView"
+            tools:text="Njoroge Isaac" />
+
+        <TextView
+            android:id="@+id/skill_iq_hours"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:textColor="#555555"
+            android:textSize="15sp"
+            app:layout_constraintStart_toEndOf="@+id/skill_iq_imageView"
+            app:layout_constraintTop_toBottomOf="@+id/skill_iq_name"
+            tools:text="210 Skill IQ Score" />
+
+        <TextView
+            android:id="@+id/skill_iq_country"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:textColor="#555555"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@+id/skill_iq_hours"
+            app:layout_constraintStart_toEndOf="@+id/skill_iq_hours"
+            app:layout_constraintTop_toTopOf="@+id/skill_iq_hours"
+            tools:text="Egypt" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

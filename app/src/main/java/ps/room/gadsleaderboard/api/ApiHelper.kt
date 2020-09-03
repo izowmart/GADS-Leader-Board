@@ -5,4 +5,5 @@ import retrofit2.Response
 
 interface ApiHelper {
     suspend fun getLearningLeaders() : Response<List<Learners>>
+    suspend fun getSkillIQLeaders() :Response<List<Learners>>
 }
