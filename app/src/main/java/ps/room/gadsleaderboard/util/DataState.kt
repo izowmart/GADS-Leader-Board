@@ -1,7 +1,9 @@
 package ps.room.gadsleaderboard.util
 
-sealed class DataState<out R> {
-    data class Success<out T>(val data: T) : DataState<T>()
-    data class Error(val exception: Exception) : DataState<Nothing>()
+import ps.room.gadsleaderboard.model.SkilledIQLearners
+
+sealed class DataState<out R:Any> {
+    data class Success<out T:Any>(val data: List<SkilledIQLearners>?) : DataState<T>()
+    data class Error(val exception: String) : DataState<Nothing>()
     object Loading : DataState<Nothing>()
 }

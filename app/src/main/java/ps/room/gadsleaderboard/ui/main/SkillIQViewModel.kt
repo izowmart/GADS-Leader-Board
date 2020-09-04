@@ -7,6 +7,7 @@ import kotlinx.coroutines.launch
 import ps.room.gadsleaderboard.model.SkilledIQLearners
 import ps.room.gadsleaderboard.repository.MainRepository
 import ps.room.gadsleaderboard.util.DataState
+import ps.room.gadsleaderboard.util.DataState.Success
 import ps.room.gadsleaderboard.util.NetworkHelper
 
 class SkillIQViewModel @ViewModelInject constructor(
@@ -30,15 +31,16 @@ class SkillIQViewModel @ViewModelInject constructor(
             if (networkHelper.isNetworkConnected()) {
                 repository.getSkilledIQLearners().let {
                     if (it.isSuccessful) {
-                        _skilledLearners.postValue(DataState.Success(it.body()).data)
+                        _skilledLearners.postValue(Success(it.body()))
                     } else {
                         _skilledLearners.postValue(DataState.Error(it.errorBody().toString()))
                     }
                 }
             } else {
-                _skilledLearners.postValue(DataState.Error("No internet connection")
+                _skilledLearners.postValue(DataState.Error("No internet connection"))
             }
         }
     }
 
 }
+

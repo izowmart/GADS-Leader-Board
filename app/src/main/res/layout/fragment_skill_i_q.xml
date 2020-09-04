@@ -10,9 +10,7 @@
         android:id="@+id/recyclerView_iq"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
-        tools:listitem="@layout/single_skill_iq_item"
-        tools:visibility="visible" />
+        tools:listitem="@layout/single_skill_iq_item"/>
 
     <ProgressBar
         android:id="@+id/progressBar_iq"

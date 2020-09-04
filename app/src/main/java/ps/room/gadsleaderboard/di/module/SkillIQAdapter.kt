@@ -4,6 +4,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.single_skill_iq_item.view.*
 import ps.room.gadsleaderboard.R
 import ps.room.gadsleaderboard.model.SkilledIQLearners
@@ -15,6 +17,12 @@ class SkillIQAdapter(private val skilledIQLearners: ArrayList<SkilledIQLearners>
             itemView.skill_iq_name.text = skilledIQLearners.name
             itemView.skill_iq_hours.text = skilledIQLearners.score.toString()
             itemView.skill_iq_country.text = skilledIQLearners.country
+
+            val options = RequestOptions().placeholder(R.drawable.btn_background)
+            Glide.with(itemView.context)
+                .applyDefaultRequestOptions(options)
+                .load(skilledIQLearners.badge_url)
+                .into(itemView.skill_iq_imageView)
 
         }
 
