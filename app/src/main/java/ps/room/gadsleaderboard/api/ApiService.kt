@@ -1,6 +1,7 @@
 package ps.room.gadsleaderboard.api
 
 import ps.room.gadsleaderboard.model.Learners
+import ps.room.gadsleaderboard.model.SkilledIQLearners
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.Field
@@ -13,7 +14,7 @@ interface ApiService {
     suspend fun getLearningLeaders(): Response<List<Learners>>
 
     @GET("/api/skilliq")
-    suspend fun getSkillIQLeaders(): Response<List<Learners>>
+    suspend fun getSkillIQLeaders(): Response<List<SkilledIQLearners>>
 
     @POST("https://docs.google.com/forms/d/e/1FAIpQLSf9d1TcNU6zc6KR8bSEM41Z1g1zl35cwZr2xyjIhaMAz8WChQ/formResponse")
     @FormUrlEncoded

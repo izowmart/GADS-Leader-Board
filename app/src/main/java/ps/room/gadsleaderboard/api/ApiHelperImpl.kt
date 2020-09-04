@@ -1,6 +1,7 @@
 package ps.room.gadsleaderboard.api
 
 import ps.room.gadsleaderboard.model.Learners
+import ps.room.gadsleaderboard.model.SkilledIQLearners
 import retrofit2.Response
 import javax.inject.Inject
 
@@ -9,7 +10,7 @@ class ApiHelperImpl @Inject constructor(private val apiService: ApiService) : Ap
         return apiService.getLearningLeaders()
     }
 
-    override suspend fun getSkillIQLeaders(): Response<List<Learners>> {
+    override suspend fun getSkillIQLeaders(): Response<List<SkilledIQLearners>> {
         return apiService.getSkillIQLeaders()
     }
 }
