@@ -45,7 +45,6 @@ object ApplicationModule {
     @Singleton
     fun provideGson(): Gson{
         return GsonBuilder()
-            .excludeFieldsWithoutExposeAnnotation()
             .create()
     }
 
@@ -58,12 +57,22 @@ object ApplicationModule {
             .client(okHttpClient)
             .build()
     }
+    @Provides
+    @Singleton
+    fun provideSubmitRetrofit(gson:Gson,okHttpClient: OkHttpClient,baseUrl:String): Retrofit{
+        return Retrofit.Builder()
+            .baseUrl(baseUrl)
+            .addConverterFactory(GsonConverterFactory.create(gson))
+            .client(okHttpClient)
+            .build()
+    }
 
     @Provides
     @Singleton
     fun provideApiService(retrofit: Retrofit): ApiService{
         return retrofit.create(ApiService::class.java)
     }
+
     @Provides
     @Singleton
     fun provideApiHelperImpl(apiHelperImpl: ApiHelperImpl):ApiHelper{

@@ -10,7 +10,7 @@
         android:id="@+id/recyclerView_ll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/single_learning_leader_item"
         tools:visibility="visible" />
 

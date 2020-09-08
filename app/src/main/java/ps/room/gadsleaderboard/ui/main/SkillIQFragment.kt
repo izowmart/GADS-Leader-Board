@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.fragment_skill_i_q.*
 import kotlinx.android.synthetic.main.fragment_skill_i_q.view.*
 import ps.room.gadsleaderboard.R
 import ps.room.gadsleaderboard.di.module.SkillIQAdapter
-import ps.room.gadsleaderboard.util.DataState
+import ps.room.gadsleaderboard.util.Status
 
 @AndroidEntryPoint
 class SkillIQFragment : Fragment() {
@@ -31,8 +31,13 @@ class SkillIQFragment : Fragment() {
 
 
     }
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view =  inflater.inflate(R.layout.fragment_skill_i_q, container, false)
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val view = inflater.inflate(R.layout.fragment_skill_i_q, container, false)
         setupUI(view)
         setupObserver()
         return view
@@ -41,16 +46,17 @@ class SkillIQFragment : Fragment() {
 
     private fun setupObserver() {
         viewModel.skilledIQLearners.observe(viewLifecycleOwner, Observer {
-            when (it) {
-                is DataState.Success -> {
+
+            when (it.status) {
+                Status.SUCCESS -> {
                     displayProgressView(false)
-                    it.data?.let { it1 -> adapter.setData(it1) }
+                    it.data?.let { data -> adapter.setData(data) }
                 }
-                is DataState.Error -> {
+                Status.ERROR -> {
                     displayProgressView(false)
-                    displayErrorMessage(it.exception)
+                    displayErrorMessage(it.message)
                 }
-                DataState.Loading -> {
+                Status.LOADING -> {
                     displayProgressView(true)
                 }
             }
@@ -60,7 +66,7 @@ class SkillIQFragment : Fragment() {
     private fun displayErrorMessage(exception: String?) {
         if (exception != null) {
             Toast.makeText(context, exception, Toast.LENGTH_SHORT).show()
-        }else{
+        } else {
             Toast.makeText(context, "UNKNOWN ERROR", Toast.LENGTH_SHORT).show()
         }
     }
@@ -72,15 +78,16 @@ class SkillIQFragment : Fragment() {
     }
 
     private fun setupUI(view: View) {
-        view.recyclerView_iq.layoutManager = LinearLayoutManager(context)
         adapter = SkillIQAdapter(arrayListOf())
         view.recyclerView_iq.addItemDecoration(
-            DividerItemDecoration(view.recyclerView_iq.context, (view.recyclerView_iq.layoutManager as LinearLayoutManager).orientation)
+            DividerItemDecoration(
+                view.recyclerView_iq.context,
+                (view.recyclerView_iq.layoutManager as LinearLayoutManager).orientation
+            )
         )
         view.recyclerView_iq.adapter = adapter
 
     }
-
 
 
     companion object {

@@ -12,6 +12,7 @@ import ps.room.gadsleaderboard.model.SkilledIQLearners
 
 class SkillIQAdapter(private val skilledIQLearners: ArrayList<SkilledIQLearners>) :
     RecyclerView.Adapter<SkillIQAdapter.DataViewHolder>() {
+
     class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(skilledIQLearners: SkilledIQLearners) {
             itemView.skill_iq_name.text = skilledIQLearners.name
@@ -21,7 +22,7 @@ class SkillIQAdapter(private val skilledIQLearners: ArrayList<SkilledIQLearners>
             val options = RequestOptions().placeholder(R.drawable.btn_background)
             Glide.with(itemView.context)
                 .applyDefaultRequestOptions(options)
-                .load(skilledIQLearners.badge_url)
+                .load(skilledIQLearners.badgeUrl)
                 .into(itemView.skill_iq_imageView)
 
         }
@@ -32,13 +33,15 @@ class SkillIQAdapter(private val skilledIQLearners: ArrayList<SkilledIQLearners>
         LayoutInflater.from(parent.context).inflate(R.layout.single_skill_iq_item, parent, false)
     )
 
-    override fun getItemCount() = skilledIQLearners.size
+    override fun getItemCount() =
+        skilledIQLearners.size
 
-    override fun onBindViewHolder(holder: DataViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: DataViewHolder, position: Int) =
         holder.bind(skilledIQLearners[position])
-    }
+
 
     fun setData(learners: List<SkilledIQLearners>) {
         skilledIQLearners.addAll(learners)
+        notifyDataSetChanged()
     }
 }
