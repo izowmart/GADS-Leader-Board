@@ -2,6 +2,7 @@ package ps.room.gadsleaderboard.api
 
 import ps.room.gadsleaderboard.model.Learners
 import ps.room.gadsleaderboard.model.SkilledIQLearners
+import ps.room.gadsleaderboard.model.Submit
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.Field
