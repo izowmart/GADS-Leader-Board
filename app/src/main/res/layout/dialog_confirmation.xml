@@ -1,36 +1,82 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?><!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:background="@drawable/dialog_background"-->
+<!--    android:gravity="center"-->
+<!--    android:minWidth="300dp"-->
+<!--    android:minHeight="200dp"-->
+<!--    android:orientation="vertical"-->
+<!--    android:padding="16dp">-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/tv_sure"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="24dp"-->
+<!--        android:text="Are you sure ?"-->
+<!--        android:textSize="20sp"-->
+<!--        android:textStyle="bold" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/btn_confirm"-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="55dp"-->
+<!--        app:cornerRadius="20dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:text="Sure"-->
+<!--        app:strokeWidth="3dp"-->
+<!--        app:strokeColor="@color/button_selector"-->
+<!--        style="@style/Widget.MaterialComponents.Button.OutlinedButton"-->
+<!--        android:textAllCaps="false"-->
+<!--        android:textColor="@color/button_selector"/>-->
+<!--</LinearLayout>-->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/dialog_background"
-    android:gravity="center"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:minWidth="300dp"
     android:minHeight="200dp"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:background="@drawable/dialog_background">
+
+    <ImageView
+        android:id="@+id/ivClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:padding="2dp"
+        android:src="@drawable/ic_close"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_sure"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Are you sure ?"
+        android:text="Are_you_sure"
         android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:id="@+id/btn_confirm"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="100dp"
         android:layout_height="55dp"
-        app:cornerRadius="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="8dp"
         android:text="Sure"
-        app:strokeWidth="3dp"
-        app:strokeColor="@color/button_selector"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:textAllCaps="false"
-        android:textColor="@color/button_selector"/>
-
-</LinearLayout>
+        android:textColor="@color/button_selector"
+        app:cornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_sure"
+        app:layout_constraintStart_toStartOf="@+id/tv_sure"
+        app:layout_constraintTop_toBottomOf="@+id/tv_sure"
+        app:strokeColor="@color/button_selector"
+        app:strokeWidth="3dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
